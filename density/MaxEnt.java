@@ -31,7 +31,9 @@ public class MaxEnt {
 
     static void checkVersion() {
 	String version = System.getProperties().getProperty("java.version");
-	double v = Double.parseDouble(version.substring(0,3));
+	System.out.println("Java Version: " + version);
+	int end = Math.min(version.length(),3);
+	double v = Double.parseDouble(version.substring(0,end));
 	// can't call Utils, as Utils needs 1.4 to load (prefs.Preferences)
 	//	if (v < 1.4) Utils.fatalException("Java version is " + version + ", need 1.4 or later", null);
 	if (v < 1.5) {
